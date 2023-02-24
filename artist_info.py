@@ -1,4 +1,4 @@
-"""Module doctring for main.py
+"""Module doctring for artist_info.py
 
 This module works with Spotify API, retrieves data
 and outputs desired information about artist according
