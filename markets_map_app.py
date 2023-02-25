@@ -118,7 +118,7 @@ def map_plot(countries):
                                    icon=folium.Icon()))
     
     map.add_child(fg)
-    map.save("spotify_api/templates/markets_locations.html")
+    map.save("/Users/admin/ucu_programming/spotify/spotify_api/templates/markets_locations.html")
 
 
 
