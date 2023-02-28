@@ -93,7 +93,3 @@ if __name__ == "__main__":
         print(f"{idx + 1}. {song['name']}")
         print(f"Album: '{song['album']['name']}'\
  ({song['album']['release_date'].split('-')[0]})")
-        try:
-            print(f"Available in: {song['available_markets']}\n")
-        except KeyError:
-            continue
