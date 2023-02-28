@@ -10,6 +10,7 @@ https://github.com/Karl9Doniz/spotify_api
 
 import json
 import base64
+import os
 import folium
 from requests import post, get
 from flask import Flask, redirect, render_template, request, url_for
@@ -20,6 +21,10 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
+        try:
+            os.remove('templates/markets_locations.html')
+        except:
+            print("No such file")
         token = get_token()
         name = request.form["nm"]
         result = search_for_artist(token, name)
@@ -31,13 +36,13 @@ def login():
         countries = get_info_by_track(token, id_song)
 
         map_plot(countries, song['name'])
-        return redirect(url_for("markets", song=song['name']))
+        return render_template("markets_locations.html")
     else:
         return render_template("login.html")
     
-@app.route("/<song>")
-def markets(song):
-    return render_template("markets_locations.html")
+# @app.route("/<song>")
+# def markets(song):
+#     return render_template("markets_locations.html")
 
 CLIENT_ID="8aa6712d52d94dd68cec77e607aa9d89"
 CLIENT_SECRET="dcc2d11a3c924a46b4e3bd58930891f9"
@@ -137,7 +142,7 @@ def map_plot(countries, name):
              '''
     map.get_root().html.add_child(folium.Element(title_html))
     map.add_child(fg)
-    map.save("spotify_api/templates/markets_locations.html")
+    map.save("templates/markets_locations.html")
 
 
 def csv_to_dict():
