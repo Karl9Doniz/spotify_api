@@ -23,8 +23,16 @@ recieves a name of an artist through the submit form on starting page. Once reci
 loads another page that contains a map of markers of all the countries(markets) where the most
 popular song of that artist is available.
 
-Example of program at work:
+Example of program at work. Let's find the most popular song of a famous Swedish band ABBA and where 
+this song is available to play on Spotify:
 
-<img width="1573" alt="Screenshot 2023-02-28 at 03 29 00" src="https://user-images.githubusercontent.com/44242769/221729446-3a094e6d-a362-43a7-a98e-e23570942345.png">
+<img width="1655" alt="Screenshot 2023-02-28 at 21 43 42" src="https://user-images.githubusercontent.com/44242769/221962083-7b1a85a0-b71a-4c15-95a8-8349cb39cabc.png">
 
-<img width="1655" alt="Screenshot 2023-02-28 at 03 29 41" src="https://user-images.githubusercontent.com/44242769/221729454-d33d92cb-1b46-4312-bdc8-4ea9be6dffc3.png">
+
+
+<img width="1655" alt="Screenshot 2023-02-28 at 21 44 09" src="https://user-images.githubusercontent.com/44242769/221962093-9b23a8da-3c63-453a-87aa-3b36f656a9fc.png">
+
+Repository contains countries.csv file - it was created using both Nominatim and manually using Internet to speed up
+the process of marking ALL locations from available_markets list.
+
+
