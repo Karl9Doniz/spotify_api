@@ -1,7 +1,7 @@
 # spotify_api
 
 This repository id dedicated to learning the basics of working with API and JSON files.
-There are two main python programs in total: first - artist_info.py and marlets_map_app.py that both
+There are two main python programs in total: first - artist_info.py and markets_map_app.py that both
 work with Spotify API.
 
 
@@ -14,4 +14,17 @@ Examples of program at work:
 
 <img width="989" alt="Screenshot 2023-02-28 at 03 19 53" src="https://user-images.githubusercontent.com/44242769/221727995-451d48ab-7590-473d-9c63-149a1d09269e.png">
 
-<img width="1532" alt="Screenshot 2023-02-27 at 18 27 25" src="https://user-images.githubusercontent.com/44242769/221728030-decc5035-1222-4d69-8382-68af8d3e6456.png">
+<img width="974" alt="Screenshot 2023-02-28 at 03 20 25" src="https://user-images.githubusercontent.com/44242769/221728152-4909d9c0-cf73-4411-8d70-a2e7dcc82d7d.png">
+
+
+2. markets_map_app.py - second program. It's essentially a web app (buit using Flask) that's
+deployed on a pythonanywhere.com server. Link: https://aandrii.pythonanywhere.com. The program
+recieves a name of an artist through the submit form on starting page. Once recieved, website
+loads another page that contains a map of markers of all the countries(markets) where the most
+popular song of that artist is available.
+
+Example of program at work:
+
+<img width="1573" alt="Screenshot 2023-02-28 at 03 29 00" src="https://user-images.githubusercontent.com/44242769/221729446-3a094e6d-a362-43a7-a98e-e23570942345.png">
+
+<img width="1655" alt="Screenshot 2023-02-28 at 03 29 41" src="https://user-images.githubusercontent.com/44242769/221729454-d33d92cb-1b46-4312-bdc8-4ea9be6dffc3.png">
