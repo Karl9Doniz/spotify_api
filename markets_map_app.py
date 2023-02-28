@@ -21,10 +21,6 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
-        try:
-            os.remove('templates/markets_locations.html')
-        except:
-            print("No such file")
         token = get_token()
         name = request.form["nm"]
         result = search_for_artist(token, name)
@@ -36,7 +32,8 @@ def login():
         countries = get_info_by_track(token, id_song)
 
         map_plot(countries, song['name'])
-        return render_template("markets_locations.html")
+        print("Generated new map")
+        return map_plot(countries, song['name'])
     else:
         return render_template("login.html")
     
@@ -80,7 +77,7 @@ def get_auth_header(token):
 
 def search_for_artist(token, artist_name):
     """
-    Function returns artist id from token and strists's name.
+    Function returns artist id from token and artists's name.
     """
 
     url = "https://api.spotify.com/v1/search"
@@ -99,8 +96,6 @@ def get_info_by_artist(token, artist_id):
     """
     Returns top 10 songs.
     """
-    # countries = csv_to_dict.keys()
-    # for code in countries:
     url = f"https://api.spotify.com/v1/artists/{artist_id}/top-tracks?country=US"
     headers = get_auth_header(token)
     result = get(url, headers=headers)
@@ -136,13 +131,13 @@ def map_plot(countries, name):
         fg.add_child(folium.Marker(location=[coord[0], coord[1]], popup=coord[2], 
                                    icon=folium.Icon()))
 
-
     title_html = f'''
              <h3 align="center" style="font-size:30px"><b>Showing map for: "{name}"</b></h3>
              '''
     map.get_root().html.add_child(folium.Element(title_html))
     map.add_child(fg)
-    map.save("templates/markets_locations.html")
+    # map.save("templates/markets_locations.html")
+    return map.get_root().render()
 
 
 def csv_to_dict():

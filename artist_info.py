@@ -80,6 +80,19 @@ def get_info_by_artist(token, artist_id):
     return json_result
 
 
+def get_associated_genres_by_artist(token, artist_id):
+    """
+    Returns all the genres an artist is associate with. Returns empty array 
+    if there are no such genres classified by Spotify. 
+    """
+
+    url = f"https://api.spotify.com/v1/artists/{artist_id}"
+    headers = get_auth_header(token)
+    result = get(url, headers=headers)
+    json_result = json.loads(result.content)["genres"]
+    return json_result     
+
+
 if __name__ == "__main__":
     token = get_token()
     name = input()
@@ -93,3 +106,15 @@ if __name__ == "__main__":
         print(f"{idx + 1}. {song['name']}")
         print(f"Album: '{song['album']['name']}'\
  ({song['album']['release_date'].split('-')[0]})")
+        
+    response = input("Would you like to view genres field? If yes,\
+type the name of the key, if no, type 'no'\n")
+    while True:
+        if response == "genres":
+            print(get_associated_genres_by_artist(token, artist_id))
+            break
+        elif response == "no":
+            print(get_associated_genres_by_artist(token, artist_id))
+            break
+        else:
+            response = input("Type the corect name of the field, or type no")
